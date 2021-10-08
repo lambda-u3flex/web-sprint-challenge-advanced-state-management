@@ -7,12 +7,7 @@ import {
 } from "../actions";
 
 export const initialState = {
-  smurfs: {
-    name: "",
-    position: "",
-    nickname: "",
-    description: "",
-  },
+  smurfs: [],
   isLoading: false,
   error: "",
 };
@@ -22,7 +17,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_START:
       return {
         ...state,
-        smurfs: {},
+        smurfs: [],
         isLoading: true,
         error: "",
       };
@@ -36,7 +31,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_FAIL:
       return {
         ...state,
-        smurfs: {},
+        smurfs: [],
         isLoading: false,
         error: action.payload,
       };

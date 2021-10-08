@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addSmurf, addError } from "./../actions";
 
 const AddForm = (props) => {
-  const { addSmurf, addError } = props;
+  const { error, addSmurf, addError } = props;
 
   const [state, setState] = useState({
     name: "",
@@ -11,9 +11,6 @@ const AddForm = (props) => {
     nickname: "",
     description: "",
   });
-
-  //remove when error state is added
-  const errorMessage = "";
 
   const handleChange = (e) => {
     setState({
@@ -73,13 +70,13 @@ const AddForm = (props) => {
             id="description"
           />
         </div>
-        {errorMessage && (
+        {error && (
           <div
             data-testid="errorAlert"
             className="alert alert-danger"
             role="alert"
           >
-            Error: {errorMessage}
+            Error: {error}
           </div>
         )}
         <button>Submit Smurf</button>

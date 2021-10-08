@@ -13,7 +13,7 @@ export const initialState = {
     nickname: "",
     description: "",
   },
-  isFetching: false,
+  isLoading: false,
   error: "",
 };
 
@@ -23,35 +23,35 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         smurfs: {},
-        isFetching: true,
+        isLoading: true,
         error: "",
       };
     case FETCH_SUCCESSFUL:
       return {
         ...state,
         smurfs: action.payload,
-        isFetching: false,
+        isLoading: false,
         error: "",
       };
     case FETCH_FAIL:
       return {
         ...state,
         smurfs: {},
-        isFetching: false,
+        isLoading: false,
         error: action.payload,
       };
     case ADD_SMURF:
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
-        isFetching: false,
+        isLoading: false,
         error: "",
       };
     case ADD_ERROR:
       return {
         ...state,
         smurfs: [...state.smurfs],
-        isFetching: false,
+        isLoading: false,
         error: action.payload,
       };
     default:

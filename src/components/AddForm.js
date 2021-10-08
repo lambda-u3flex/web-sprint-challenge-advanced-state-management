@@ -21,9 +21,9 @@ const AddForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.name === "" || state.position === "" || state.nickname === "") {
-      //add in error action
-    }
+    state.name === "" || state.position === "" || state.nickname === ""
+      ? addError('"Name, position and nickname are required."')
+      : addSmurf(state);
   };
 
   return (
